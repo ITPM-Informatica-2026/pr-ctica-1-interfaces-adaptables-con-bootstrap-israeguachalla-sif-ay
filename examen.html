@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FreshCart · Supermercado de alimentos frescos</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-ZEN0mr9uJXbuYFZ1+jmVjiAh6t1E4TZFAHk8peIv9+QY5cKkVjEU9gDgyk2t7f7g"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    :root {
+      --brand: #2563eb;
+      --brand-dark: #1d4ed8;
+      --bg: #f6f8fb;
+      --text: #0f172a;
+      --muted: #64748b;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: linear-gradient(160deg, #ffffff 0%, #f6f8fb 48%, #e9eef6 100%);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 1.25rem;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: rgba(15, 23, 42, 0.75);
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      color: var(--brand);
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-title {
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      max-width: 38rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      border: none;
+    }
+
+    .btn-outline-secondary {
+      border-color: rgba(15, 23, 42, 0.16);
+      color: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image img:hover {
+      transform: translateY(-4px);
+    }
+
+    .badge-pill {
+      border-radius: 999px;
+    }
+
+    .badge-layer {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+      padding: 0.75rem 0.9rem;
+      border-radius: 1.25rem;
+    }
+
+    .badge-layer .icon {
+      font-size: 1.25rem;
+    }
+
+    .categories-title {
+      letter-spacing: 0.03em;
+      font-weight: 600;
+    }
+
+    .category-card {
+      border: none;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
+    }
+
+    .category-card img {
+      border-radius: 1.25rem;
+      height: 7.5rem;
+      object-fit: cover;
+    }
+
+    .footer {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (max-width: 767px) {
+      .hero {
+        padding: 3.5rem 0 2rem;
+      }
+
+      .hero-image {
+        margin-top: 2.5rem;
+      }
+
+      .hero-image img {
+        max-width: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">FreshCart</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Frutas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Verduras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Panadería</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ofertas</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-outline-secondary btn-sm" type="button" aria-label="Buscar">
+            🔍
+          </button>
+          <button class="btn btn-outline-secondary btn-sm" type="button" aria-label="Perfil">
+            👤
+          </button>
+          <a class="btn btn-dark btn-sm text-white d-none d-lg-inline-flex align-items-center gap-1" href="#">
+            <span class="small">Zona de estudiantes</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center gx-5">
+        <div class="col-lg-6">
+          <p class="text-uppercase text-muted mb-2">Supermercado online con entrega local</p>
+          <h1 class="hero-title display-5 mb-3">
+            Supermercado<br />para alimentos frescos
+          </h1>
+          <p class="hero-subtitle mb-4">
+            Descubre una selección premium de productos saludables, llegados directamente
+            del productor a tu puerta en menos de 24 horas.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#" class="btn btn-primary btn-lg">
+              Comprar ahora
+            </a>
+            <a href="#categorias" class="btn btn-outline-secondary btn-lg">
+              Ver categorías
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center hero-image">
+          <div class="d-inline-block position-relative">
+            <img
+              src="https://images.unsplash.com/photo-1531891437562-63d8e5f66af7?auto=format&fit=crop&w=900&q=70"
+              alt="Canasta de frutas y verduras" class="img-fluid"
+            />
+
+            <div class="position-absolute top-0 start-0 translate-middle badge-layer">
+              <div class="d-flex align-items-center gap-2">
+                <span class="icon">🌿</span>
+                <div>
+                  <div class="small text-muted">Productos</div>
+                  <div class="fw-semibold">100% frescos</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="position-absolute bottom-0 end-0 translate-middle badge-layer">
+              <div class="d-flex align-items-center gap-2">
+                <span class="icon">🚚</span>
+                <div>
+                  <div class="small text-muted">Entrega</div>
+                  <div class="fw-semibold">en 24 hrs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías destacadas -->
+  <section id="categorias" class="py-5">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+        <h2 class="h4 mb-0 categories-title">Categorías destacadas</h2>
+        <a href="#" class="text-decoration-none text-muted small">Ver todo</a>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-card p-3 text-center h-100">
+            <img
+              src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=260&q=70"
+              alt="Frutas"
+              class="w-100 mb-3"
+            />
+            <h6 class="mb-1">Frutas</h6>
+            <p class="text-muted small mb-0">Frescas y jugosas</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-card p-3 text-center h-100">
+            <img
+              src="https://images.unsplash.com/photo-1555317128-3bbd3893c634?auto=format&fit=crop&w=260&q=70"
+              alt="Verduras"
+              class="w-100 mb-3"
+            />
+            <h6 class="mb-1">Verduras</h6>
+            <p class="text-muted small mb-0">Directo del huerto</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-card p-3 text-center h-100">
+            <img
+              src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=260&q=70"
+              alt="Panadería"
+              class="w-100 mb-3"
+            />
+            <h6 class="mb-1">Panadería</h6>
+            <p class="text-muted small mb-0">Recién horneado</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-card p-3 text-center h-100">
+            <img
+              src="https://images.unsplash.com/photo-1585238342029-6753c8c69431?auto=format&fit=crop&w=260&q=70"
+              alt="Lácteos"
+              class="w-100 mb-3"
+            />
+            <h6 class="mb-1">Lácteos</h6>
+            <p class="text-muted small mb-0">Del campo</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-card p-3 text-center h-100">
+            <img
+              src="https://images.unsplash.com/photo-1598514983739-39dcf8a22a25?auto=format&fit=crop&w=260&q=70"
+              alt="Snacks"
+              class="w-100 mb-3"
+            />
+            <h6 class="mb-1">Snacks</h6>
+            <p class="text-muted small mb-0">Para cada antojo</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-card p-3 text-center h-100">
+            <img
+              src="https://images.unsplash.com/photo-1527515637460-7a8a67b3daaa?auto=format&fit=crop&w=260&q=70"
+              alt="Condimentos"
+              class="w-100 mb-3"
+            />
+            <h6 class="mb-1">Condimentos</h6>
+            <p class="text-muted small mb-0">Sabor casero</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-4">
+    <div class="container text-center">
+      <p class="mb-0 text-muted small">
+        © 2026 FreshCart. Todos los derechos reservados.
+      </p>
+      <p class="mb-0 text-muted small">
+        Proyecto de ejemplo para la materia Diseño y Programación Web II.
+      </p>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-TRSL2o63u56JGc0gEwfgs1KvjSADaQGFd2k52V4sRtz+pVv7uTMGt7gGx0vQnL0Y"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
